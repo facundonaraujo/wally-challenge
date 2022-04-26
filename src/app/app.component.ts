@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { RouterExtensions } from '@nativescript/angular'
 import { Application } from '@nativescript/core'
+import Theme from '@nativescript/theme'
 import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from 'nativescript-ui-sidedrawer'
 import { Subscription } from 'rxjs'
 import { User } from './models/user.model'
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit, OnDestroy  {
   ) {}
 
   ngOnInit() {
+    Theme.setMode(Theme.Light);
     this.userSubscribe = this.authService.user.subscribe({
       next: (resp) => {
         this.user = resp;

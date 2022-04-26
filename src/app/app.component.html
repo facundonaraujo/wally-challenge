@@ -8,14 +8,14 @@
     
     <ScrollView row="1" class="drawer-body">
       <StackLayout>
-        <GridLayout
-          columns="auto, *"
+        <FlexboxLayout
+          alignItems="center"
           class="drawer-list-item"
           (tap)="onLogout()"
         >
-          <Image class="drawer-item-image"  src="~/app/assets/logout_icon.png"></Image>
-          <Label col="1" text="Cerrar Sesión" class="drawer-item-tittle"></Label>
-        </GridLayout>
+          <Image width="20" height="20" class="drawer-item-image"  src="~/app/assets/logout_icon.png"></Image>
+          <Label text="Cerrar Sesión" class="drawer-item-tittle"></Label>
+        </FlexboxLayout>
       </StackLayout>
     </ScrollView>
   </GridLayout>

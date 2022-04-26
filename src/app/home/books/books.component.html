@@ -30,7 +30,7 @@
                 [src]="item?.volumeInfo?.imageLinks?.smallThumbnail | ImageTransform" 
                 stretch="aspectFill"
               ></image>
-              <FlexboxLayout flexDirection="column">
+              <FlexboxLayout width="80%" flexDirection="column">
                 <Label textWrap="true" marginTop="-10" class="book-title" [text]="item?.volumeInfo?.title"></Label>
                 <Label textWrap="true" marginTop="-8" class="book-subtitle" [text]="item?.volumeInfo?.authors[0]"></Label>
                 <Label textWrap="true" marginTop="-8" class="book-subtitle" [text]="item?.volumeInfo?.publishedDate"></Label>

@@ -1,0 +1,46 @@
+<page class="books-page">
+
+  <ActionBar class="action-bar">
+    <GridLayout columns="auto,*,auto" orientation="horizontal" ios:padding="0 10" height="100%" width="100%">
+      <Image 
+        width="25" 
+        height="25" 
+        src="~/app/assets/menu.png" 
+        horizontalAlignment="left"
+        verticalAlignment="center" 
+        col="0" 
+        loadMode="sync"
+        (tap)="onDrawerButtonTap()"
+      >
+      </Image>
+    </GridLayout>
+  </ActionBar>
+
+  <GridLayout>
+    <ListView [items]="books" class="list-group" row="0">
+      <ng-template let-item="item">
+        <FlexboxLayout marginBottom="10" width="100%">
+          <StackLayout class="book-card" (tap)="onTapBook(item)">
+            <FlexboxLayout>
+              <image 
+                width="60" 
+                height="75" 
+                class="book-image"
+                loadMode="sync"
+                [src]="item?.volumeInfo?.imageLinks?.smallThumbnail | ImageTransform" 
+                stretch="aspectFill"
+              ></image>
+              <FlexboxLayout flexDirection="column">
+                <Label textWrap="true" marginTop="-10" class="book-title" [text]="item?.volumeInfo?.title"></Label>
+                <Label textWrap="true" marginTop="-8" class="book-subtitle" [text]="item?.volumeInfo?.authors[0]"></Label>
+                <Label textWrap="true" marginTop="-8" class="book-subtitle" [text]="item?.volumeInfo?.publishedDate"></Label>
+              </FlexboxLayout>
+            </FlexboxLayout>
+          </StackLayout>
+        </FlexboxLayout>
+      </ng-template>
+    </ListView>
+    <ActivityIndicator [busy]="loadingBooks" class="loader"></ActivityIndicator>
+  </GridLayout>
+
+</page>

@@ -1,3 +1,26 @@
-<GridLayout>
-  <page-router-outlet></page-router-outlet>
-</GridLayout>
+<RadSideDrawer [drawerTransition]="sideDrawerTransition" id="app">
+  <GridLayout tkDrawerContent rows="auto, *" class="drawer-content">
+    <FlexboxLayout flexDirection="column" justifyContent="flex-start" class="drawer-header">
+      <Image loadMode="sync" alignSelf="flex-start" class="drawer-header-image" src="~/app/assets/man.png"></Image>
+      <Label class="drawer-header-name" [text]="this.user?.name"></Label>
+      <Label class="drawer-header-email" [text]="this.user?.email"></Label>
+    </FlexboxLayout>
+    
+    <ScrollView row="1" class="drawer-body">
+      <StackLayout>
+        <GridLayout
+          columns="auto, *"
+          class="drawer-list-item"
+          (tap)="onLogout()"
+        >
+          <Image class="drawer-item-image"  src="~/app/assets/logout_icon.png"></Image>
+          <Label col="1" text="Cerrar Sesión" class="drawer-item-tittle"></Label>
+        </GridLayout>
+      </StackLayout>
+    </ScrollView>
+  </GridLayout>
+
+  <GridLayout tkMainContent>
+    <page-router-outlet></page-router-outlet>
+  </GridLayout>
+</RadSideDrawer>

@@ -1,0 +1,97 @@
+<page class="auth-page">
+  <FlexboxLayout flexDirection="column">
+    <label textWrap="true" marginLeft="16" marginTop="12%" marginBottom="7%">
+      <FormattedString>
+        <span text="Login" class="auth-title"></span>
+      </FormattedString>
+    </label>
+
+    <FlexboxLayout flexDirection="column" [formGroup]="loginForm">
+      <label textWrap="true" marginLeft="16" marginBottom="-10">
+        <FormattedString>
+          <span text="Email" class="input-label"></span>
+        </FormattedString>
+      </label>
+      <TextField
+        formControlName="email"
+        hint="Ingresa tu email"
+        secure="false"
+        keyboardType="email"
+        returnKeyType="done"
+        autocorrect="false"
+        class="input"
+        autocapitalizationType="none"
+      >
+      </TextField>
+      <label 
+        textWrap="true"
+        *ngIf="loginForm?.controls?.email?.touched && 
+        loginForm?.controls?.email?.errors?.required" 
+        marginLeft="16" 
+        text="El email es requerido" 
+        class="error-label"
+      ></label>
+      <label 
+        *ngIf="loginForm?.controls?.email?.errors && 
+        loginForm?.controls?.email?.errors?.email && 
+        !(loginForm?.controls?.email?.errors?.required)" 
+        marginLeft="16" 
+        text="Email invalido" 
+        class="error-label"
+        textWrap="true"
+      ></label>
+  
+      <label textWrap="true" marginLeft="16" marginBottom="-10" marginTop="20">
+        <FormattedString>
+          <span text="Contraseña" class="input-label"></span>
+        </FormattedString>
+      </label>
+      <TextField
+        formControlName="password"
+        hint="Ingresa tu contraseña"
+        secure="true"
+        returnKeyType="done"
+        autocorrect="false"
+        autocapitalizationType="none"
+        class="input"
+      >
+      </TextField>
+      <label 
+        *ngIf="loginForm?.controls?.password?.touched && 
+        loginForm?.controls?.password?.errors?.required" 
+        marginLeft="16" 
+        text="La contraseña es requerida" 
+        class="error-label"
+        textWrap="true"
+      ></label>
+      <label 
+        *ngIf="loginForm?.controls?.password?.errors && 
+        loginForm?.controls?.password?.errors?.minlength && 
+        !(loginForm?.controls?.password?.errors?.required)" 
+        marginLeft="16" 
+        text="La contraseña debe tener mínimo 6 caracteres" 
+        class="error-label"
+        textWrap="true"
+      ></label>
+  
+      <button 
+        [isEnabled]="!loginForm?.invalid" 
+        alignSelf="flex-end" 
+        marginTop="6%" 
+        width="150" 
+        text="Login" 
+        class="auth-button"
+        type="submit" 
+        (tap)="login(loginForm?.value)"
+      ></button>
+
+    </FlexboxLayout>
+    
+    <label [nsRouterLink]="['/auth/register']" textWrap="true" alignSelf="center" marginTop="8%">
+      <FormattedString>
+        <span text="No tienes una cuenta? " class="text"></span>
+        <span text="Registrate" class="text link"></span>
+      </FormattedString>
+    </label>
+  </FlexboxLayout>
+</page>

@@ -1,0 +1,24 @@
+.books-page{
+    font-family: 'Lato', sans-serif;
+    padding: 50px;
+}
+
+.book-card{
+    width: 100%;
+    border-radius: 14px;
+    padding: 40px;
+}
+
+.book-image{
+    border-radius: 14px;
+    margin-right: 50px;
+}
+
+.book-title{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.book-subtitle{
+    font-size: 12px;
+}

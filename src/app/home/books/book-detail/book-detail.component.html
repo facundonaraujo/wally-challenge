@@ -1,0 +1,91 @@
+<page class="book-page">
+
+  <ActionBar class="action-bar">
+    <GridLayout columns="auto,*,auto" orientation="horizontal" ios:padding="0 10" height="100%" width="100%">
+      <Image 
+        width="25" 
+        height="25" 
+        marginRight="15"
+        src="~/app/assets/arrow.png" 
+        horizontalAlignment="left"
+        verticalAlignment="center" 
+        col="0" 
+        loadMode="sync"
+        (tap)="return()"
+      >
+      </Image>
+      <Label 
+        [text]="book?.volumeInfo?.title" 
+        class="action-bar-title"
+        horizontalAlignment="center" 
+        verticalAlignment="center"
+        col="1"
+      ></Label>
+      <label 
+        text=""
+        width="25" 
+        height="25" 
+        verticalAlignment="center" 
+        col="2"
+        tintColor="#ffffff"
+        marginRight="15"
+      ></label>
+    </GridLayout>
+  </ActionBar>
+
+  <ScrollView>
+    <StackLayout class="detail-container">
+      <FlexboxLayout>
+        <image 
+          width="120" 
+          height="195" 
+          class="book-detail-image"
+          loadMode="sync"
+          [src]="book?.volumeInfo?.imageLinks?.smallThumbnail | ImageTransform" 
+          stretch="aspectFill"
+        ></image>
+        <FlexboxLayout width="50%" flexDirection="column">
+          <Label 
+            textWrap="true" 
+            class="book-detail-title" 
+            [text]="book?.volumeInfo?.title"
+          ></Label>
+          <Label 
+            textWrap="true" 
+            class="book-detail-subtitle" 
+            [text]="book?.volumeInfo?.authors | takeFirstElement"
+          ></Label>
+          <Label 
+            textWrap="true" 
+            class="book-detail-subtitle" 
+            [text]="book?.volumeInfo?.publishedDate"
+          ></Label>
+        </FlexboxLayout>
+      </FlexboxLayout>
+      <FlexboxLayout marginTop="40" flexWrap="wrap" *ngIf="book?.volumeInfo?.description">
+        <label textWrap="true" (tap)="onTapShowMore()" >
+          <FormattedString>
+            <span 
+              class="description" 
+              textWrap="true" 
+              [text]="showMore ? book?.volumeInfo?.description : book?.volumeInfo?.description.slice(0,250)"
+            ></span>
+            <span 
+              class="show-more" 
+              textWrap="true" 
+              [text]=" showMore ? '  Leer menos' : '...  Leer más'"
+            ></span>
+          </FormattedString>
+        </label>
+      </FlexboxLayout>
+      <StackLayout marginTop="40">
+        <text-with-value title="Categoria" [value]="book?.volumeInfo?.categories | takeFirstElement"></text-with-value>
+        <text-with-value marginTop="20" title="Libro N°" [value]="book?.id"></text-with-value>
+        <text-with-value marginTop="20" title="Paginas" [value]="book?.volumeInfo?.pageCount"></text-with-value>
+        <text-with-value marginTop="20" title="Idioma" [value]="book?.volumeInfo?.language"></text-with-value>
+        <text-with-value marginTop="20" title="Editorial" [value]="book?.volumeInfo?.publisher"></text-with-value>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+
+</page>

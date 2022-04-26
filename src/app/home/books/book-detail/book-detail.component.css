@@ -1,0 +1,37 @@
+.book-page{
+    font-family: 'Lato', sans-serif;
+    padding: 140px 70px 140px 70px;
+}
+
+.detail-container{
+    border-radius: 16px;
+    padding: 80px;
+}
+
+.action-bar-title{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.book-detail-image{
+    border-radius: 14px;
+    margin-right: 90px;
+}
+
+.book-detail-title{
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.book-detail-subtitle{
+    font-size: 16px;
+}
+
+.show-more{
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.description{
+    font-size: 14px;
+}

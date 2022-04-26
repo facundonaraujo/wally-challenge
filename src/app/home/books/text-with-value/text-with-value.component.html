@@ -1,12 +1,15 @@
 <FlexboxLayout justifyContent="space-between">
   <Label 
+    width="30%"
     textWrap="true" 
     class="text-with-value" 
     [text]="title + ':'"
+    alignSelf="flex-start" 
   ></Label>
   <Label 
     textWrap="true" 
     class="text-with-value" 
     [text]="value"
+    alignSelf="flex-end" 
   ></Label>
 </FlexboxLayout>

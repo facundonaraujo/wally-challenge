@@ -19,9 +19,24 @@ En caso el candidato decida usar una lista en duro, considerar también un flujo
 
 5. EL candidato tendrá que enviar el código desarrollado en un zip o subirlo a un repositorio. Así mismo se pedirá que el candidato envíe el apk generado de este desarrollo.
 
-# Anexo
+# Preview App
 
-## **Herramientas**
+![estilos](https://github.com/facundonaraujo/wally-challenge/raw/master/images/estilos.png)
+
+![pantallas-1](https://github.com/facundonaraujo/wally-challenge/raw/master/images/pantallas-1.png)
+
+![pantallas-2](https://github.com/facundonaraujo/wally-challenge/raw/master/images/pantallas-2.png)
+
+### Lista de usarios disponibles
+
+- email: `juan_perez@test.com` y password: `123456`
+- email: `rodrigo_paez@test.com` y password: `123456`
+
+### Aclaración sobre el login
+
+Se puede hacer tanto el login con los usuarios predefinidos como crear un usuario mediante el `Signup` de la app
+
+## Herramientas
 
 - **API:** [https://developers.google.com/books](https://developers.google.com/books)
 - **Framework:** Angular 13 y Nativescript 8.2
